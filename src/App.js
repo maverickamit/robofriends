@@ -3,14 +3,23 @@
 import React, { Component } from "react";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
-import { robots } from "./robots";
 import "./App.css";
 
 class App extends Component {
   state = {
-    robots: robots,
+    robots: [],
     searchField: ""
   };
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(resp => {
+        return resp.json();
+      })
+      .then(users => {
+        return this.setState({ robots: users });
+      });
+  }
 
   onSearchChange = event => {
     this.setState({ searchField: event.target.value.toLowerCase() });
