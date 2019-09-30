@@ -1,3 +1,5 @@
+// CardList contains all the individual cards together
+
 import React from "react";
 import Card from "./Card";
 

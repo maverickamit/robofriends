@@ -1,3 +1,5 @@
+// Card container comprises of one single card component.
+
 import React from "react";
 
 const Card = ({ name, email, id }) => {
